@@ -1,0 +1,33 @@
+import Person from "./person.png";
+import PersonOne from "./Person/pOne.png";
+import PersonTwo from "./Person/pTwo.png";
+import PersonThree from "./Person/pThree.png";
+import PersonFour from "./Person/pFour.png";
+import Keyboard from "./keyboard.png";
+import KategoriOne from "./Person/kategori-1.jpg";
+import KategoriTwo from "./Person/kategori-2.jpg";
+import KategoriThree from "./Person/Kategori-3.jpg";
+import KategoriFour from "./Person/Kategori-4.jpg";
+import PhotoOfflineOne from "./Person/pO-1.png";
+import PhotoOfflineTwo from "./Person/pO-2.png";
+import PhotoOfflineThree from "./Person/pO-3.png";
+import PhotoOfflineFour from "./Person/pO-4.png";
+import PhotoOfflineFive from "./Person/pO-5.png";
+
+export {
+  Person,
+  PersonOne,
+  PersonTwo,
+  PersonThree,
+  PersonFour,
+  Keyboard,
+  KategoriOne,
+  KategoriTwo,
+  KategoriThree,
+  KategoriFour,
+  PhotoOfflineOne,
+  PhotoOfflineTwo,
+  PhotoOfflineThree,
+  PhotoOfflineFour,
+  PhotoOfflineFive,
+};
