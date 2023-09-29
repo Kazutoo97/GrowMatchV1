@@ -25,23 +25,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[99999] ${
-        isNavbarFixed
-          ? "bg-white bg-opacity-80 backdrop-blur-sm shadow-lg "
-          : "bg-transparent"
-      }`}
-    >
-      <section className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 max-w-sm mx-auto">
-        <nav className="py-5">
-          <div className="flex justify-between items-center relative">
-            <MainLogo menu={menu} setMenu={setMenu} />
-            <NavList menu={menu} />
-            <NavMobile menu={menu} />
-          </div>
-        </nav>
-      </section>
-    </header>
+    <section className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 max-w-sm mx-auto">
+      <nav className="py-5">
+        <div className="flex justify-between items-center relative">
+          <MainLogo menu={menu} setMenu={setMenu} />
+          <NavList menu={menu} />
+          <NavMobile menu={menu} />
+        </div>
+      </nav>
+    </section>
   );
 };
 
