@@ -14,7 +14,7 @@ import {
 const GrowmatchOffline = () => {
   return (
     <section className="">
-      <div className="max-w-7xl mx-auto">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
         <h1 className="text-center font-bold leading-[48px] text-3xl">
           <span className="text-[#4BC287]">Growmatch</span> offline & online
           event

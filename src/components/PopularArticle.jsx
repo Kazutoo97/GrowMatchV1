@@ -6,7 +6,7 @@ import CardArticleSmall from "./CardArticleSmall";
 const PopularArticle = () => {
   return (
     <section className="pt-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
         <h1 className="text-gray-900 text-[32px] leading-9 font-semibold">
           Pupular Article
         </h1>

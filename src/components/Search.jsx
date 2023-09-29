@@ -4,8 +4,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const Search = () => {
   return (
-    <section className="mt-[7rem] ">
-      <div className="max-w-7xl mx-auto ">
+    <section className="mt-[3rem] ">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
         <div className="flex space-x-4">
           <div className="w-1/2 bg-[#CBF9DC] text-[#4BC287] rounded-md shadow-lg">
             <button

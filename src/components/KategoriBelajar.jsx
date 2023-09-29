@@ -10,7 +10,7 @@ import CardKategoriBelajar from "./molecules/CardKategoriBelajar";
 const KategoriBelajar = () => {
   return (
     <section className="my-20 bg-[#CBF9DC]">
-      <div className="max-w-7xl mx-auto py-[70px]">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-autopy-[70px]">
         <h1 className="font-bold text-[32px]">
           Kategori belajar di <span className="text-[#5EDFA9]">GrowMatch</span>
         </h1>

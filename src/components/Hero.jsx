@@ -3,40 +3,44 @@ import { Person } from "../assets";
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-36 ">
-      <div className="max-w-7xl mx-auto ">
-        <div className="flex justify-center items-center">
-          <div className="w-6/12 text-[#230E15]">
-            <p className="font-medium text-xl">
-              More than a <span className="text-[#5EDFA9]">social media</span>
+    <section id="hero" className="pt-36 bg-gray-200 ">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
+        <div className="flex flex-col items-center md:items-center w-full h-full">
+          <div className="flex-auto md:w-5/12 flex flex-col justify-center items-center">
+            <p className="text-base md:text-lg font-medium">
+              More than a <span className="text-teal-500 ">social media</span>
             </p>
-            <h1 className="mt-2 font-semibold text-7xl flex flex-col leading-[4.5rem] ">
-              <span>Glow Up with</span>
-              <span className="text-[#5EDFA9] font-bold">
-                GrowMatch{" "}
-                <span className="font-semibold text-[#230E15]">to</span>
+            <h1 className="font-semibold text-4xl md:text-5xl leading-[1.2] flex flex-col items-center justify-center">
+              <span>Glow Up with</span>{" "}
+              <span className="text-teal-500 font-bold">
+                GrowMatch <span className="text-black font-semibold">to</span>
               </span>
-              <span> Grow Together</span>
+              <span>Grow Together</span>
             </h1>
-            <span className="mt-9 h-2 w-[85%] bg-[#5EDFA9] block rounded-full"></span>
-            <p className="font-medium text-sm mt-5 w-[80%] ">
+            <div className="h-1 w-[90%] bg-teal-500 rounded-full mt-3 mb-5 md:mt-5 md:mb-8"></div>
+            <p className="font-medium text-center text-xs md:text-sm w-[85%]">
               Lorem ipsum dolor sit amet consectetur. Risus facilisis in pretium
-              vel. Ut pretium tempor duis erat porttitor
+              vel. Ut pretium tempor duis erat porttitor{" "}
             </p>
           </div>
-          <div className="relative w-6/12 z-10">
-            <div className="flex items-end justify-center ">
-              <img src={Person} alt="Person" className="h-[450px] z-10 " />
+          <div className="flex w-full flex-auto md:w-7/12 md:ml-8 md:pb-14 md:mt-8">
+            <div className="flex w-full md:justify-start md:items-end relative h-[380px] md:h-[450px] py-6 px-8 ">
+              <div className="absolute  md:h-[402px] bg-[#CBF9DC] rounded-tl-[10rem] rounded-br-[8rem] md:rounded-tl-[10rem] md:rounded-br-[10rem] md:rounded-tr-md shadow-xl "></div>
+              <div className="absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] md:top-[50%] md:-translate-y-[50%] md:left-[50%] md:-translate-x-[50%] rounded-full bg-teal-500 md:bg-white w-[250px] h-[250px] md:w-[360px] md:h-[360px] shadow-lg "></div>
+              <img
+                src={Person}
+                alt="person"
+                className="w-[200px] md:w-[340px] absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] md:top-0 md:left-[50%] md:-translate-x-[50%] "
+              />
+
               <button
                 type="button"
-                className="text-3xl text-white font-semibold absolute bottom-0 left-0 px-[220px] rounded-tl-[190px] rounded-tr-[150px] rounded-br-[150px] py-5 bg-[#079273] z-10 "
+                className="absolute bottom-[4rem] left-[50%] -translate-x-[50%] py-2 w-[280px] md:bottom-6 md:left-0 md:py-5 md:w-[80%] text-white font-medium bg-teal-600 rounded-e-full rounded-tl-full text-xl md:text-3xl shadow-lg "
               >
                 Match Now
               </button>
-              <div className="z-8 absolute top-0 left-0 bg-[#CBF9DC] h-full w-full rounded-tr-lg rounded-tl-[200px] rounded-br-[200px] shadow-lg"></div>
-              <div className="z-9 absolute top-[70px] left-[140px] bg-white w-[410px] h-[410px] rounded-full "></div>
-              <div className="z-9 absolute top-[100px] -left-[30px] bg-white w-[100px] h-[100px] rounded-full shadow-lg"></div>
-              <div className="z-9 absolute top-[70px] -right-[30px] bg-white w-[80px] h-[80px] rounded-full shadow-lg"></div>
+              <div className="absolute md:-left-8 rounded-full bg-white md:w-[80px] md:h-[80px] shadow-lg "></div>
+              <div className="absolute md:top-[8rem] md:-left-8 rounded-full bg-white md:w-[80px] md:h-[80px] shadow-lg"></div>
             </div>
           </div>
         </div>
