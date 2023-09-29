@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainLogo from "./molecules/MainLogo";
 import NavList from "./molecules/NavList";
 import NavMobile from "./molecules/NavMobile";
