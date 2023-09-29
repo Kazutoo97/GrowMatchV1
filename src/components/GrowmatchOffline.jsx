@@ -1,9 +1,5 @@
 import React from "react";
 import {
-  KategoriFour,
-  KategoriOne,
-  KategoriThree,
-  KategoriTwo,
   PhotoOfflineFive,
   PhotoOfflineFour,
   PhotoOfflineOne,
@@ -12,6 +8,32 @@ import {
 } from "../assets";
 
 const GrowmatchOffline = () => {
+  {
+    /* <div className="h-1/3 flex ">
+              <div className="flex h-full w-full space-x-2 ">
+                <img
+                  src={KategoriOne}
+                  alt=""
+                  className="w-full rounded-md object-cover"
+                />
+                <img
+                  src={KategoriTwo}
+                  alt=""
+                  className="w-full rounded-md object-cover"
+                />
+                <img
+                  src={KategoriThree}
+                  alt=""
+                  className="w-full rounded-md object-cover"
+                />
+                <img
+                  src={KategoriFour}
+                  alt=""
+                  className="w-full rounded-md object-cover"
+                />
+              </div>
+            </div> */
+  }
   return (
     <section className="">
       <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
@@ -56,30 +78,6 @@ const GrowmatchOffline = () => {
                     className="w-full rounded-md object-cover"
                   />
                 </div>
-              </div>
-            </div>
-            <div className="h-1/3 flex ">
-              <div className="flex h-full w-full space-x-2 ">
-                <img
-                  src={KategoriOne}
-                  alt=""
-                  className="w-full rounded-md object-cover"
-                />
-                <img
-                  src={KategoriTwo}
-                  alt=""
-                  className="w-full rounded-md object-cover"
-                />
-                <img
-                  src={KategoriThree}
-                  alt=""
-                  className="w-full rounded-md object-cover"
-                />
-                <img
-                  src={KategoriFour}
-                  alt=""
-                  className="w-full rounded-md object-cover"
-                />
               </div>
             </div>
           </div>
