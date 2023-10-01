@@ -3,7 +3,7 @@ import Image from "../assets";
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-36 bg-gray-200 ">
+    <section id="hero" className="pt-36">
       <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 max-w-sm mx-auto">
         <div className="flex flex-col items-center md:flex-row md:items-center w-full h-full ">
           <div className="flex-auto md:w-5/12 flex flex-col md:justify-start md:items-start justify-center items-center ">
