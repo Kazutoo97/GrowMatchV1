@@ -83,6 +83,13 @@ const PopularFrined = () => {
   return (
     <section className="py-20">
       <div className="px-4 py-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto h-fit bg-white relative">
+        <div>
+          <h1 className="font-bold text-gray-900 text-3xl">Popular Friends</h1>
+          <p className="text-base text-gray-500">
+            Kesempatan belajar bersama orang orang yang berpengalaman di bidang
+            ini
+          </p>
+        </div>
         <Slider ref={arrowRef} {...settings}>
           {DataCard.map((data) => (
             <div
