@@ -13,8 +13,18 @@ import PhotoOfflineTwo from "./Person/pO-2.png";
 import PhotoOfflineThree from "./Person/pO-3.png";
 import PhotoOfflineFour from "./Person/pO-4.png";
 import PhotoOfflineFive from "./Person/pO-5.png";
+import Avatar1 from "./Avatar/avatar-1.png";
+import Avatar2 from "./Avatar/avatar-2.png";
+import Avatar3 from "./Avatar/avatar-3.png";
+import Avatar4 from "./Avatar/avatar-4.png";
+import Avatar5 from "./Avatar/avatar-5.png";
 
-export {
+const Image = {
+  Avatar1,
+  Avatar2,
+  Avatar3,
+  Avatar4,
+  Avatar5,
   Person,
   PersonOne,
   PersonTwo,
@@ -31,3 +41,5 @@ export {
   PhotoOfflineFour,
   PhotoOfflineFive,
 };
+
+export default Image;

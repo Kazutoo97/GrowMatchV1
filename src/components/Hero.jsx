@@ -1,5 +1,5 @@
 import React from "react";
-import { Person } from "../assets";
+import Image from "../assets";
 
 const Hero = () => {
   return (
@@ -28,7 +28,7 @@ const Hero = () => {
               <div className="opacity-0 md:opacity-100 md:absolute md:top-0 md:left-0 md:h-[402px] md:w-full md:bg-[#CBF9DC] md:rounded-tl-[8rem] md:rounded-br-[8rem] lg:rounded-tl-[10rem] lg:rounded-br-[10rem] md:rounded-tr-md md:shadow-xl"></div>
               <div className="absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] md:top-[50%] md:-translate-y-[50%] md:left-[50%] md:-translate-x-[50%] rounded-full bg-teal-500 md:bg-white w-[250px] h-[250px] md:w-[290px] md:h-[290px] lg:w-[360px] lg:h-[360px] shadow-lg "></div>
               <img
-                src={Person}
+                src={Image.Person}
                 alt="person"
                 className="w-[200px] md:w-[280px] lg:w-[340px] absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] md:top-[50%] md:-translate-y-[50%] md:left-[50%] md:-translate-x-[50%] "
               />
