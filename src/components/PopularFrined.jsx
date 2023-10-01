@@ -83,7 +83,7 @@ const PopularFrined = () => {
   return (
     <section className="py-20">
       <div className="px-4 py-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto h-fit bg-white relative">
-        <div>
+        <div className="text-center md:text-left">
           <h1 className="font-bold text-gray-900 text-3xl">Popular Friends</h1>
           <p className="text-base text-gray-500">
             Kesempatan belajar bersama orang orang yang berpengalaman di bidang
@@ -145,11 +145,11 @@ const PopularFrined = () => {
                     <BiLogoInstagram className="text-xl text-center sm:hover:text-white" />
                   </button>
                 </div>
-                <div className="button mx-[30px] mt-6 mb-4">
+                <div className="button mx-4 mt-6 mb-4">
                   <div className="flex justify-around flex-col space-y-2 items-center ">
                     <button
                       type="button"
-                      className="w-full py-2  border-2 hover:bg-teal-500 border-black rounded-lg"
+                      className="w-full py-2 border-2 hover:bg-teal-500 border-black rounded-lg"
                     >
                       Profile
                     </button>
