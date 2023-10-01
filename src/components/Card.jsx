@@ -3,7 +3,7 @@ import LeftArrow from "../assets/SVG/LeftArrow";
 
 const Card = ({ img }) => {
   return (
-    <div className="w-1/4 border-2 rounded-md border-slate-200">
+    <div className="border-2 rounded-md border-slate-200">
       <div className=" flex flex-col justify-center items-center text-center mx-4 my-4 ">
         <img
           src={img}

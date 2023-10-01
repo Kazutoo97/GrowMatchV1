@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       colors: {
         text: "#9ca3af",
+        textBlack: "#29303B",
+        descCard: "#4F545E",
+        textCard: "#777777",
+        HeadingCard: "#424242",
       },
       fontFamily: {
         lato: ['"Lato"', "sans-serif"],

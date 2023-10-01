@@ -1,15 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
+import {
+  BiLogoFacebook,
+  BiLogoTwitter,
+  BiLogoLinkedin,
+  BiLogoInstagram,
+} from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { DataCard } from "../data/CardData";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import LeftArrow from "../assets/SVG/LeftArrow";
 
 const PopularFrined = () => {
   const arrowRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0); // State untuk indeks slide saat ini
   const [slideCount, setSlideCount] = useState(0);
+  console.log(slideCount);
 
   useEffect(() => {
     setSlideCount(DataCard.length);
@@ -74,15 +80,12 @@ const PopularFrined = () => {
       },
     ],
   };
-
   return (
-    <section className="pt-20">
+    <section className="py-20">
       <div className="px-4 py-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto h-fit bg-white relative">
         <div className="text-center md:text-left">
-          <h1 className="font-bold text-HeadingCard text-3xl">
-            Beginer Friends
-          </h1>
-          <p className="text-base text-textCard">
+          <h1 className="font-bold text-gray-900 text-3xl">Popular Friends</h1>
+          <p className="text-base text-gray-500">
             Kesempatan belajar bersama orang orang yang berpengalaman di bidang
             ini
           </p>
@@ -91,44 +94,72 @@ const PopularFrined = () => {
           {DataCard.map((data) => (
             <div
               key={data.name}
-              className="box h-fit relative rounded-lg p-[10px] text-center bg-white border border-[#CED4DA] shadow-lg"
+              className="box h-fit relative rounded-[20px] p-[10px] text-center bg-white border border-gray-400"
             >
               <div className="content">
                 <div className="image mt-4">
                   <img
                     src={data.img}
                     alt=""
-                    className="h-[120px] w-[120px] rounded-full object-cover block mx-auto mb-1"
+                    className="h-[80px] w-[80px] md:h-[110px] md:w-[110px] lg:h-[80px] lg:w-[80px] xl:h-[9] rounded-full object-cover block mx-auto mb-1"
                   />
                 </div>
-                <div className="content-profile mt-2">
-                  <p className="name tracking-[1px] text-textBlack font-bold text-base">
+                <div className="content-profile">
+                  <p className="name tracking-[1px] font-bold leading-normal text-lg">
                     {data.name}
                   </p>
-                  <p className="job-address mt-1 mb-3 text-textBlack text-xs font-medium">
+                  <p className="job-title text-xs text-gray-400 font-semibold mt-[2px]">
+                    {data.position}
+                  </p>
+                  <p className="job-desc mt-4 text-xs mx-[30px] md:mx-[10px] text-gray-400 md:block">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quia nulla possimus accusantium
+                  </p>
+                  <p className="job-address mt-3 mb-2 text-gray-600 text-sm font-medium lg:text-sm">
                     Lhokseumawe, Aceh
                   </p>
-
-                  <p className="job-desc mt-4 mb-2 text-xs mx-1  text-descCard font-normal">
-                    Bagaimana Darryl Pouros DDS seorang mahasiswa bule asal
-                    Universitas Negeri Surakarta mendapatkan pengalaman belajar
-                    yang luar biasa sebagai illustrator freelance
-                  </p>
-                  <p className="job-title text-xs text-sky-600 font-semibold mt-[2px]">
-                    Data Science
-                  </p>
                 </div>
-
-                <div className="button mx-4 mt-4 mb-2 text-center text-white">
+                <div className="icons absolute space-y-3 top-5 right-3 flex flex-col items-center justify-around">
                   <button
                     type="button"
-                    className="w-full py-2 bg-teal-500 rounded-md flex items-center text-base font-medium justify-center outline-none"
+                    className="w-[20px] h-[20px] bg-white rounded-full sm:border-2 sm:hover:bg-teal-500 border-gray-800 flex items-center justify-center"
                   >
-                    Matching Now
-                    <span className="ml-8">
-                      <LeftArrow className="h-4 w-4" />
-                    </span>
+                    <BiLogoFacebook className="text-xl text-center sm:hover:text-white" />
                   </button>
+                  <button
+                    type="button"
+                    className="w-[20px] h-[20px] bg-white rounded-full sm:border-2 sm:hover:bg-teal-500 border-gray-800 flex items-center justify-center"
+                  >
+                    <BiLogoTwitter className="text-xl text-center sm:hover:text-white" />
+                  </button>
+                  <button
+                    type="button"
+                    className="w-[20px] h-[20px] bg-white rounded-full sm:border-2 sm:hover:bg-teal-500 border-gray-800 flex items-center justify-center"
+                  >
+                    <BiLogoLinkedin className="text-lg text-center sm:hover:text-white" />
+                  </button>
+                  <button
+                    type="button"
+                    className="w-[20px] h-[20px] bg-white rounded-full sm:border-2 sm:hover:bg-teal-500 border-gray-800 flex items-center justify-center"
+                  >
+                    <BiLogoInstagram className="text-xl text-center sm:hover:text-white" />
+                  </button>
+                </div>
+                <div className="button mx-4 mt-6 mb-4">
+                  <div className="flex justify-around flex-col space-y-2 items-center ">
+                    <button
+                      type="button"
+                      className="w-full py-2 border-2 hover:bg-teal-500 border-black rounded-lg"
+                    >
+                      Profile
+                    </button>
+                    <button
+                      type="button"
+                      className="w-full py-2  bg-teal-500 hover:bg-teal-400/70 rounded-lg border-2 border-black"
+                    >
+                      Connect
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
