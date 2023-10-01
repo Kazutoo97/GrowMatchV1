@@ -25,7 +25,7 @@ const PopularArticle = () => {
             <div className="flex pt-8 w-full space-x-8">
               <div className="w-3/12 relative">
                 <img
-                  src={Image.PersonFour}
+                  src={Image.BigArticle}
                   alt=""
                   className="w-full h-full object-cover rounded-md absolute top-0 left-0"
                 />

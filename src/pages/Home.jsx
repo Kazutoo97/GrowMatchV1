@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import PopularFrined from "../components/PopularFrined";
 import BeginnerFriend from "../components/BeginnerFriend";
 import PopularArticle from "../components/PopularArticle";
+import KategoriBelajar from "../components/KategoriBelajar";
+import GrowmatchOffline from "../components/GrowmatchOffline";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <PopularFrined />
       <BeginnerFriend />
       <PopularArticle />
+      <KategoriBelajar />
+      <GrowmatchOffline />
       <Footer />
     </>
   );

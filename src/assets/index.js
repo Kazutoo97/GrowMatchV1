@@ -18,6 +18,7 @@ import Avatar2 from "./Avatar/avatar-2.png";
 import Avatar3 from "./Avatar/avatar-3.png";
 import Avatar4 from "./Avatar/avatar-4.png";
 import Avatar5 from "./Avatar/avatar-5.png";
+import BigArticle from "./Person/Articlejpg.jpg";
 
 const Image = {
   Avatar1,
@@ -40,6 +41,7 @@ const Image = {
   PhotoOfflineThree,
   PhotoOfflineFour,
   PhotoOfflineFive,
+  BigArticle,
 };
 
 export default Image;

@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  KategoriOne,
-  KategoriTwo,
-  KategoriThree,
-  KategoriFour,
-} from "../assets";
+import Image from "../assets";
 import CardKategoriBelajar from "./molecules/CardKategoriBelajar";
 
 const KategoriBelajar = () => {
   return (
     <section className="my-20 bg-[#CBF9DC]">
-      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-autopy-[70px]">
+      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
         <h1 className="font-bold text-[32px]">
           Kategori belajar di <span className="text-[#5EDFA9]">GrowMatch</span>
         </h1>
@@ -18,10 +13,19 @@ const KategoriBelajar = () => {
           Beragam kategori subjek belajar yang tersedia dalam growmatch
         </p>
         <div className="flex space-x-4">
-          <CardKategoriBelajar img={KategoriOne} title="Data Science" />
-          <CardKategoriBelajar img={KategoriTwo} title="Quality Assurance" />
-          <CardKategoriBelajar img={KategoriThree} title="Product Manager" />
-          <CardKategoriBelajar img={KategoriFour} title="UI UX Designer" />
+          <CardKategoriBelajar img={Image.KategoriOne} title="Data Science" />
+          <CardKategoriBelajar
+            img={Image.KategoriTwo}
+            title="Quality Assurance"
+          />
+          <CardKategoriBelajar
+            img={Image.KategoriThree}
+            title="Product Manager"
+          />
+          <CardKategoriBelajar
+            img={Image.KategoriFour}
+            title="UI UX Designer"
+          />
         </div>
       </div>
     </section>

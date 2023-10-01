@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  PhotoOfflineFive,
-  PhotoOfflineFour,
-  PhotoOfflineOne,
-  PhotoOfflineThree,
-  PhotoOfflineTwo,
-} from "../assets";
+import Image from "../assets";
 
 const GrowmatchOffline = () => {
   // {
@@ -36,7 +30,7 @@ const GrowmatchOffline = () => {
   // }
   return (
     <section className="">
-      <div className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
+      <div className="x-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 mx-auto">
         <h1 className="text-center font-bold leading-[48px] text-3xl">
           <span className="text-[#4BC287]">Growmatch</span> offline & online
           event
@@ -51,29 +45,33 @@ const GrowmatchOffline = () => {
           <div className="flex flex-col h-[681px] space-y-2">
             <div className="h-2/3 flex space-x-2">
               <div className="w-1/2 flex">
-                <img src={PhotoOfflineOne} alt="" className="rounded-lg" />
+                <img
+                  src={Image.PhotoOfflineOne}
+                  alt=""
+                  className="rounded-lg"
+                />
               </div>
               <div className="w-1/2 flex flex-col space-y-2">
                 <div className="flex h-full space-x-2">
                   <img
-                    src={PhotoOfflineThree}
+                    src={Image.PhotoOfflineThree}
                     alt=""
                     className="w-full rounded-md object-cover"
                   />
                   <img
-                    src={PhotoOfflineFive}
+                    src={Image.PhotoOfflineFive}
                     alt=""
                     className="w-full rounded-md object-cover"
                   />
                 </div>
                 <div className="flex h-full space-x-2">
                   <img
-                    src={PhotoOfflineFour}
+                    src={Image.PhotoOfflineFour}
                     alt=""
                     className="w-full rounded-md object-cover"
                   />
                   <img
-                    src={PhotoOfflineTwo}
+                    src={Image.PhotoOfflineTwo}
                     alt=""
                     className="w-full rounded-md object-cover"
                   />
