@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "../assets";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -33,12 +34,12 @@ const Hero = () => {
                 className="w-[200px] md:w-[280px] lg:w-[340px] absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] md:top-[50%] md:-translate-y-[50%] md:left-[50%] md:-translate-x-[50%] "
               />
 
-              <button
-                type="button"
-                className="absolute bottom-[4rem] left-[50%] -translate-x-[50%] py-2 md:py-3 lg:py5 w-[280px] lg:bottom-0 md:bottom-5 md:left-0 md:translate-x-0  md:w-[80%] text-white font-medium bg-teal-600 rounded-e-full rounded-tl-full text-xl md:text-2xl lg:text-3xl shadow-lg "
+              <Link
+                to="/growmatch"
+                className="absolute bottom-[4rem] left-[50%] cursor-pointer -translate-x-[50%] py-2 md:py-3 lg:py5 w-[280px] lg:bottom-0 md:bottom-5 md:left-0 md:translate-x-0  md:w-[80%] text-white font-medium bg-teal-600 rounded-e-full rounded-tl-full text-xl md:text-2xl lg:text-3xl shadow-lg text-center "
               >
                 Match Now
-              </button>
+              </Link>
               <div className="absolute md:-left-8 md:top-[6rem] rounded-full bg-white md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] shadow-lg "></div>
               <div className="absolute md:-right-7 md:top-[2.5rem] rounded-full bg-white md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px] shadow-lg"></div>
             </div>

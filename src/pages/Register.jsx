@@ -1,42 +1,176 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiOutlineGoogle } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/Logo";
+import { useDispatch } from "react-redux";
+import { registerService } from "../redux/service/AuthService";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [formData, setFormdata] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    dob: "",
+    interest: "",
+  });
+
+  const { firstName, lastName, email, password, dob, interest } = formData;
+
+  console.log(formData);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "REGISTER_PENDING" });
+
+    try {
+      const data = await registerService(
+        firstName,
+        lastName,
+        email,
+        password,
+        dob,
+        interest
+      );
+      dispatch({ type: "REGISTER_FULFILLED", payload: data.data.email });
+      console.log(data.data);
+      navigate("/login");
+    } catch (error) {
+      console.log(error.response || error.message);
+    }
+  };
+  const onChange = (e) => {
+    setFormdata((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
   return (
-    <section className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 max-w-sm mx-auto"></section>
-    //   <section className="h-screen flex justify-center items-center bg-slate-300">
-    //   <div className="slide-container max-w-[1120px] w-[100%] bg-slate-500 py-[45px]">
-    //     <div className="slide-content mx-10">
-    //       <div className="card-wrapper">
-    //         <div className="card rounded-[25px] bg-white w-[320px] z-[99]">
-    //           <div className="image-content relative py-[35px] px-[14px] flex flex-col items-center gap-y-[5px] ">
-    //             <span className="overlay absolute h-full w-full top-0 left-0 bg-[#4070f4] rounded-tl-3xl rounded-tr-[25px] rounded-bl-[25px] before:content-[''] before:absolute before:h-10 before:w-10 before:bg-[#4070f4] before:right-0 before:-bottom-10 after:content-[''] after:absolute after:h-10 after:w-10 after:bg-white after:right-0 after:-bottom-10 after:rounded-tr-[25px]"></span>
-    //             <div className="card-image h-[150px] w-[150px] rounded-full p-[3px] z-[99] bg-white">
-    //               <img
-    //                 src={PersonOne}
-    //                 alt=""
-    //                 className="card-img h-full w-full object-cover rounded-full border-4 border-[#4070f4]"
-    //               />
-    //             </div>
-    //           </div>
-    //           <div className="card-content py-[10px] px-[14px] flex flex-col items-center">
-    //             <h2 className="name text-lg font-medium">Kirigaya Kazuto</h2>
-    //             <p className="description text-sm text-center">
-    //               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    //               Beatae consequuntur quo at soluta, saepe a est inventore omnis
-    //               placeat error.
-    //             </p>
-    //             <button
-    //               type="button"
-    //               className="button border-none text-base text-white py-2 px-4 bg-[#4070f4] hover:bg-[#265df2] rounded-md m-4 cursor-pointer transition ease-in-out duration-300"
-    //             >
-    //               View More
-    //             </button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
+    <section className="mt-[120px]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex w-[500px] mx-auto mb-12">
+          <div className="flex flex-col justify-center items-center bg-gray-200 py-6 px-9 w-full rounded-lg shadow-lg">
+            <div className="w-full ">
+              <div className="flex justify-center items-center gap-x-3">
+                <Logo className="h-10 w-10" />
+                <div>
+                  <h3 className="text-[24px] ">GrowMatch</h3>
+                  <h3 className="text-sm -mt-2">Match and Grow Together</h3>
+                </div>
+              </div>
+              <div className="mt-8 mb-4 px-8 py-4 text-center bg-white w-full">
+                <span className="w-[60%] text-2xl">
+                  Login to grow together with your friends.
+                </span>
+              </div>
+              <button
+                type="button"
+                className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full"
+              >
+                <AiOutlineGoogle className="w-6 h-6" />
+                <p className="text-2xl font-medium ">Masuk lewat google</p>
+              </button>
+              <div className="pt-6 flex flex-row justify-center items-center w-full space-x-4">
+                <span className="h-[2px] bg-[#079273] w-full rounded-lg"></span>
+                <span className="whitespace-nowrap text-[#079273] font-medium">
+                  OR
+                </span>
+                <span className="h-[2px] bg-[#079273] w-full rounded-lg"></span>
+              </div>
+              <form onSubmit={onSubmit}>
+                <div className="flex flex-col w-full pt-6 space-y-6">
+                  <div className="flex ">
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="firstName"
+                      value={firstName}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="lastName"
+                      value={lastName}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="email"
+                      value={email}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="password"
+                      value={password}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="Date"
+                      placeholder="Date Of birth"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="dob"
+                      value={dob}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Interest"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      name="interest"
+                      value={interest}
+                      onChange={onChange}
+                    />
+                  </div>
+                  <p className="pt-4 text-sm text-center">
+                    By signing up, you agree to our Terms , Privacy Policy and
+                    Cookies Policy .
+                  </p>
+
+                  <button
+                    type="submit"
+                    className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full text-2xl"
+                  >
+                    Register
+                  </button>
+                  <Link className="text-[#079273] text-right font-normal">
+                    Forgot password?
+                  </Link>
+
+                  <div className="mt-4  bg-white flex items-center justify-center">
+                    <p className="px-8 py-4">
+                      Havn’t an account?{" "}
+                      <Link to="/register" className="text-[#079273]">
+                        Register
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

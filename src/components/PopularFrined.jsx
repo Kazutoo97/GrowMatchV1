@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrow from "../assets/SVG/LeftArrow";
+import { Link } from "react-router-dom";
 
 const PopularFrined = () => {
   const arrowRef = useRef(null);
@@ -120,7 +121,8 @@ const PopularFrined = () => {
                 </div>
 
                 <div className="button mx-4 mt-4 mb-2 text-center text-white">
-                  <button
+                  <Link
+                    to="/profile/nama-user"
                     type="button"
                     className="w-full py-2 bg-teal-500 rounded-md flex items-center text-base font-medium justify-center outline-none"
                   >
@@ -128,7 +130,7 @@ const PopularFrined = () => {
                     <span className="ml-8">
                       <LeftArrow className="h-4 w-4" />
                     </span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

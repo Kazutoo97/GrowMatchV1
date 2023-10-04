@@ -6,7 +6,10 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 const MainLogo = ({ menu, setMenu }) => {
   return (
     <div className="w-full md:w-4/12 flex items-center justify-between">
-      <Link className="flex items-center justify-center space-x-2 lg:space-x-3 font-lato ">
+      <Link
+        to="/"
+        className="flex items-center justify-center space-x-2 lg:space-x-3 font-lato "
+      >
         <Logo className="md:w-8 md:h-8 w-12 h-12" />
         <div className="flex flex-col items-start justify-start text-[#026966] py-2 ">
           <div className="w-full text-xl lg:text-lg lg:-mt-1 font-bold">
