@@ -121,6 +121,7 @@ const Login = () => {
                       name="email"
                       value={email}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <div>
@@ -131,6 +132,7 @@ const Login = () => {
                       name="password"
                       value={password}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <p className="pt-4 text-sm text-center">

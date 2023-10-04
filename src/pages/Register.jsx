@@ -99,6 +99,7 @@ const Register = () => {
                       name="lastName"
                       value={lastName}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <div>
@@ -109,6 +110,7 @@ const Register = () => {
                       name="email"
                       value={email}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <div>
@@ -119,6 +121,7 @@ const Register = () => {
                       name="password"
                       value={password}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <div>
@@ -129,6 +132,7 @@ const Register = () => {
                       name="dob"
                       value={dob}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <div>
@@ -139,6 +143,7 @@ const Register = () => {
                       name="interest"
                       value={interest}
                       onChange={onChange}
+                      required
                     />
                   </div>
                   <p className="pt-4 text-sm text-center">
