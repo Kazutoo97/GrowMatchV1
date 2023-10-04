@@ -15,7 +15,7 @@ const NavList = () => {
 
     try {
       const response = await axios.delete(
-        "http://localhost:8000/api/v1/auth/logout"
+        "https://grow-match-v1.vercel.app/api/v1/auth/logout"
       );
       localStorage.removeItem("user");
       dispatch({ type: "LOGOUT_FULFILLED" });

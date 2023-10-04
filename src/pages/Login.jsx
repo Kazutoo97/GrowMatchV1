@@ -40,7 +40,7 @@ const Login = () => {
     const token = tokenData?.data;
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/auth/profile",
+        "https://grow-match-v1.vercel.app/api/v1/auth/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,

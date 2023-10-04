@@ -7,7 +7,7 @@ export const loginService = async (email, password) => {
   };
 
   const response = await axios.post(
-    "http://localhost:8000/api/v1/auth/login",
+    "https://grow-match-v1.vercel.app/api/v1/auth/login",
     userData
   );
 
@@ -32,7 +32,7 @@ export const registerService = async (
   };
 
   const response = await axios.post(
-    "http://localhost:8000/api/v1/auth/register",
+    "https://grow-match-v1.vercel.app/api/v1/auth/register",
     userData
   );
 
