@@ -7,7 +7,7 @@ export const loginService = async (email, password) => {
   };
 
   const response = await axios.post(
-    "https://grow-match-v1.vercel.app/api/v1/auth/login",
+    "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/login",
     userData
   );
 
@@ -32,7 +32,7 @@ export const registerService = async (
   };
 
   const response = await axios.post(
-    "https://grow-match-v1.vercel.app/api/v1/auth/register",
+    "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/register",
     userData
   );
 
