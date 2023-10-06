@@ -5,6 +5,7 @@ import Logo from "../assets/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { loginService } from "../redux/service/AuthService";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -66,11 +67,13 @@ const Login = () => {
       const data = await loginService(email, password);
       dispatch({ type: "LOGIN_FULFILLED", payload: data });
       localStorage.setItem("user", JSON.stringify(data));
+      toast.success(data.message);
       dispatch({ type: "RESET" });
       getProfile();
       dispatch({ type: "REGISTER_RESET" });
     } catch (error) {
       console.log(error.response.data);
+      toast.error(error.response.data);
       dispatch({
         type: "LOGIN_REJECTED",
         payload: error.response.data.message,
