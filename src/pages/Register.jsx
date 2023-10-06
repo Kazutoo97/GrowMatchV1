@@ -87,7 +87,7 @@ const Register = () => {
               </div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col w-full pt-6 space-y-6">
-                  <div className="flex ">
+                  <div className="flex flex-col">
                     <input
                       type="text"
                       placeholder="First Name"
@@ -109,7 +109,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="text"
                       placeholder="Last Name"
@@ -131,7 +131,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="email"
                       placeholder="Email Address"
@@ -154,7 +154,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="password"
                       placeholder="Password"
@@ -177,7 +177,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="password"
                       placeholder="Confirm Password"
@@ -200,7 +200,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="Date"
                       placeholder="Date Of birth"
@@ -218,7 +218,7 @@ const Register = () => {
                       </p>
                     )}
                   </div>
-                  <div>
+                  <div className="flex flex-col">
                     <input
                       type="text"
                       placeholder="Interest"
