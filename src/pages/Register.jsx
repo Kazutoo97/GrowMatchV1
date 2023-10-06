@@ -4,29 +4,36 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo";
 import { useDispatch } from "react-redux";
 import { registerService } from "../redux/service/AuthService";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [formData, setFormdata] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    dob: "",
-    interest: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    watch,
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      dob: "",
+      interest: "",
+    },
+    mode: "onChange",
   });
 
-  const { firstName, lastName, email, password, dob, interest } = formData;
-
-  console.log(formData);
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     dispatch({ type: "REGISTER_PENDING" });
 
     try {
-      const data = await registerService(
+      const { firstName, lastName, email, password, dob, interest } = data;
+      const response = await registerService(
         firstName,
         lastName,
         email,
@@ -34,19 +41,18 @@ const Register = () => {
         dob,
         interest
       );
-      dispatch({ type: "REGISTER_FULFILLED", payload: data.data.email });
+      dispatch({ type: "REGISTER_FULFILLED", payload: response.data.email });
       console.log(data.data);
+      toast.success(response.message);
       navigate("/login");
     } catch (error) {
       console.log(error.response || error.message);
+      toast.error(error.message);
     }
   };
-  const onChange = (e) => {
-    setFormdata((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
+
+  const password = watch("password");
+
   return (
     <section className="mt-[120px]">
       <div className="max-w-7xl mx-auto">
@@ -79,72 +85,160 @@ const Register = () => {
                 </span>
                 <span className="h-[2px] bg-[#079273] w-full rounded-lg"></span>
               </div>
-              <form onSubmit={onSubmit}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col w-full pt-6 space-y-6">
                   <div className="flex ">
                     <input
                       type="text"
                       placeholder="First Name"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="firstName"
-                      value={firstName}
-                      onChange={onChange}
+                      {...register("firstName", {
+                        minLength: {
+                          value: 3,
+                          message: "Name length must be at least 3 character",
+                        },
+                        required: {
+                          value: true,
+                          message: "Name is required",
+                        },
+                      })}
                     />
+                    {errors.firstName?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.firstName?.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <input
                       type="text"
                       placeholder="Last Name"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="lastName"
-                      value={lastName}
-                      onChange={onChange}
-                      required
+                      {...register("lastName", {
+                        minLength: {
+                          value: 1,
+                          message: "Name length must be at least 1 character",
+                        },
+                        required: {
+                          value: true,
+                          message: "Name is required",
+                        },
+                      })}
                     />
+                    {errors.lastName?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.lastName?.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <input
                       type="email"
                       placeholder="Email Address"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="email"
-                      value={email}
-                      onChange={onChange}
-                      required
+                      {...register("email", {
+                        pattern: {
+                          value:
+                            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                          message: "Enter a valid email",
+                        },
+                        required: {
+                          value: true,
+                          message: "Email is required",
+                        },
+                      })}
                     />
+                    {errors.email?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email?.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <input
                       type="password"
                       placeholder="Password"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="password"
-                      value={password}
-                      onChange={onChange}
-                      required
+                      {...register("password", {
+                        required: {
+                          value: true,
+                          message: "Password is required",
+                        },
+                        minLength: {
+                          value: 8,
+                          message:
+                            "Password harus mempunyai minimal 8 karakter (minimal 1 huruf besar, 1 huruf kecil dan 1 angka)",
+                        },
+                      })}
                     />
+                    {errors.password?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.password?.message}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      {...register("confirmPassword", {
+                        required: {
+                          value: true,
+                          message: "Confirm password is required",
+                        },
+                        validate: (value) => {
+                          if (value !== password) {
+                            return "Passwords do not match";
+                          }
+                        },
+                      })}
+                    />
+                    {errors.confirmPassword?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.confirmPassword?.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <input
                       type="Date"
                       placeholder="Date Of birth"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="dob"
-                      value={dob}
-                      onChange={onChange}
-                      required
+                      {...register("dob", {
+                        required: {
+                          value: true,
+                          message: "DOB is required",
+                        },
+                      })}
                     />
+                    {errors.dob?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.dob?.message}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <input
                       type="text"
                       placeholder="Interest"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="interest"
-                      value={interest}
-                      onChange={onChange}
-                      required
+                      {...register("interest", {
+                        required: {
+                          value: true,
+                          message: "Interest is required",
+                        },
+                        minLength: {
+                          value: 3,
+                          message: "interest must be at least 3 characters",
+                        },
+                      })}
                     />
+                    {errors.interest?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.interest?.message}
+                      </p>
+                    )}
                   </div>
                   <p className="pt-4 text-sm text-center">
                     By signing up, you agree to our Terms , Privacy Policy and
@@ -164,8 +258,8 @@ const Register = () => {
                   <div className="mt-4  bg-white flex items-center justify-center">
                     <p className="px-8 py-4">
                       Havn’t an account?{" "}
-                      <Link to="/register" className="text-[#079273]">
-                        Register
+                      <Link to="/login" className="text-[#079273]">
+                        Login
                       </Link>
                     </p>
                   </div>

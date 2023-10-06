@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import { useSelector } from "react-redux";
 import Growmatch from "./pages/Growmatch";
 import UserProfile from "./pages/UserProfile";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { user } = useSelector((state) => state.Auth);
@@ -29,6 +30,7 @@ function App() {
           element={user ? <UserProfile /> : <Navigate to="/" />}
         />
       </Routes>
+      <Toaster />
     </BrowserRouter>
   );
 }
