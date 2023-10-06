@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerService } from "../redux/service/AuthService";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -10,6 +10,8 @@ import toast from "react-hot-toast";
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isLoading } = useSelector((state) => state.Email);
+
   const {
     register,
     handleSubmit,
@@ -247,8 +249,9 @@ const Register = () => {
                   </p>
 
                   <button
+                    disabled={isLoading || !isValid}
                     type="submit"
-                    className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full text-2xl"
+                    className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full text-2xl disabled:cursor-not-allowed"
                   >
                     Register
                   </button>

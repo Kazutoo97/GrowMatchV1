@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message, isLoading } = useSelector(
     (state) => state.Auth
   );
   const { registerEmail } = useSelector((state) => state.Email);
@@ -144,8 +144,9 @@ const Login = () => {
                   </p>
 
                   <button
-                    type="subnit"
-                    className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full text-2xl"
+                    disabled={isLoading}
+                    type="submit"
+                    className="flex items-center justify-center space-x-4 py-3 px-6 text-white bg-[#079273] rounded-sm w-full text-2xl disabled:cursor-not-allowed"
                   >
                     Login
                   </button>
