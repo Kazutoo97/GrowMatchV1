@@ -72,8 +72,8 @@ const Login = () => {
       getProfile();
       dispatch({ type: "REGISTER_RESET" });
     } catch (error) {
-      console.log(error.data.message);
-      toast.error(error.data.message);
+      console.log(error.response.data);
+      toast.error(error.response.data);
       dispatch({
         type: "LOGIN_REJECTED",
         payload: error.response.data.message,
