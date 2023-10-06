@@ -164,10 +164,11 @@ const Register = () => {
                           value: true,
                           message: "Password is required",
                         },
-                        minLength: {
-                          value: 8,
+                        pattern: {
+                          value:
+                            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
                           message:
-                            "Password harus mempunyai minimal 8 karakter (minimal 1 huruf besar, 1 huruf kecil dan 1 angka)",
+                            "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, and 1 number",
                         },
                       })}
                     />
