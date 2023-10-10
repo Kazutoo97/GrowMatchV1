@@ -52,7 +52,7 @@ const Register = () => {
       navigate("/login");
     } catch (error) {
       console.log(error.response || error.message);
-      toast.error(error.message);
+      toast.error(error.data.message);
     }
   };
 
