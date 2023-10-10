@@ -21,6 +21,7 @@ const Register = () => {
     defaultValues: {
       firstName: "",
       lastName: "",
+      userName: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -34,16 +35,18 @@ const Register = () => {
     dispatch({ type: "REGISTER_PENDING" });
 
     try {
-      const { firstName, lastName, email, password, dob, interest } = data;
+      const { firstName, lastName, userName, email, password, dob, interest } =
+        data;
       const response = await registerService(
         firstName,
         lastName,
+        userName,
         email,
         password,
         dob,
         interest
       );
-      dispatch({ type: "REGISTER_FULFILLED", payload: response.data.email });
+      dispatch({ type: "REGISTER_FULFILLED", payload: response.data.userName });
       console.log(data.data);
       toast.success(response.message);
       navigate("/login");
@@ -130,6 +133,29 @@ const Register = () => {
                     {errors.lastName?.message && (
                       <p className="text-red-500 text-xs mt-1">
                         {errors.lastName?.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-col">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      className="w-full h-[3rem] rounded-full px-5"
+                      {...register("userName", {
+                        minLength: {
+                          value: 3,
+                          message:
+                            "Username length must be at least 3 character and unique",
+                        },
+                        required: {
+                          value: true,
+                          message: "Username is required",
+                        },
+                      })}
+                    />
+                    {errors.userName?.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.userName?.message}
                       </p>
                     )}
                   </div>
