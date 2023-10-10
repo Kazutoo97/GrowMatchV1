@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const loginService = async (email, password) => {
+export const loginService = async (userName, password) => {
   const userData = {
-    email,
+    userName,
     password,
   };
 
@@ -17,6 +17,7 @@ export const loginService = async (email, password) => {
 export const registerService = async (
   firstName,
   lastName,
+  userName,
   email,
   password,
   dob,
@@ -25,6 +26,7 @@ export const registerService = async (
   const userData = {
     firstName,
     lastName,
+    userName,
     email,
     password,
     dob,

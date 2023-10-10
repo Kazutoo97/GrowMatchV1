@@ -13,12 +13,12 @@ const Login = () => {
   const { user, isError, isSuccess, message, isLoading } = useSelector(
     (state) => state.Auth
   );
-  const { registerEmail } = useSelector((state) => state.Email);
+  const { registerUserName } = useSelector((state) => state.Email);
   const [formData, setFormData] = useState({
-    email: registerEmail || "",
+    userName: registerUserName || "",
     password: "",
   });
-  const { email, password } = formData;
+  const { userName, password } = formData;
 
   useEffect(() => {
     if (isError) {
@@ -64,7 +64,7 @@ const Login = () => {
     dispatch({ type: "LOGIN_PENDING" });
 
     try {
-      const data = await loginService(email, password);
+      const data = await loginService(userName, password);
       dispatch({ type: "LOGIN_FULFILLED", payload: data });
       localStorage.setItem("user", JSON.stringify(data));
       toast.success(data.message);
@@ -121,8 +121,8 @@ const Login = () => {
                       type="text"
                       placeholder="Username"
                       className="w-full h-[3rem] rounded-full px-5"
-                      name="email"
-                      value={email}
+                      name="userName"
+                      value={userName}
                       onChange={onChange}
                       required
                     />

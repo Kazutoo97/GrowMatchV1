@@ -1,5 +1,5 @@
 const initialState = {
-  registerEmail: null,
+  registerUserName: null,
   isLoading: false,
   isError: false,
   isSuccess: false,
@@ -16,7 +16,7 @@ const RegisterReducer = (state = initialState, action) => {
     case "REGISTER_FULFILLED":
       return {
         ...state,
-        registerEmail: action.payload,
+        registerUserName: action.payload,
         isLoading: false,
         isSuccess: true,
         message: action.payload.message,
@@ -33,7 +33,7 @@ const RegisterReducer = (state = initialState, action) => {
     case "REGISTER_RESET":
       return {
         ...state,
-        registerEmail: null,
+        registerUserName: null,
         isLoading: false,
         isError: false,
         isSuccess: false,
