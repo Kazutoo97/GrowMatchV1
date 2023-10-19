@@ -45,7 +45,7 @@ const ResetPassword = () => {
       const { password } = data;
 
       const response = await axios.put(
-        "http://localhost:8000/api/v1/reset-password",
+        "https://giddy-lime-goshawk.cyclic.cloud/api/v1/reset-password",
         { token, password }
       );
 
