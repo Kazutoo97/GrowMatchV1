@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     try {
       const { email } = data;
       const response = await axios.put(
-        "https://giddy-lime-goshawk.cyclic.cloud/api/v1/forgot-password",
+        "https://alert-lime-underwear.cyclic.app/api/v1/forgot-password",
         { email }
       );
 

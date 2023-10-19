@@ -41,7 +41,7 @@ const Login = () => {
     const token = tokenData?.data;
     try {
       const response = await axios.get(
-        "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/profile",
+        "https://alert-lime-underwear.cyclic.app/api/v1/auth/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,

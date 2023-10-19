@@ -7,7 +7,7 @@ export const loginService = async (userName, password) => {
   };
 
   const response = await axios.post(
-    "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/login",
+    "https://alert-lime-underwear.cyclic.app/api/v1/auth/login",
     userData
   );
 

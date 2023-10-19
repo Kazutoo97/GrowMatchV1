@@ -9,7 +9,7 @@ export const getProfile = () => async (dispatch) => {
   }
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/auth/profile",
+      "https://alert-lime-underwear.cyclic.app/api/v1/auth/profile",
       {
         headers: {
           Authorization: `Bearer ${tokenData.data}`,
