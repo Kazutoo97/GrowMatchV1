@@ -150,7 +150,10 @@ const Login = () => {
                   >
                     Login
                   </button>
-                  <Link className="text-[#079273] text-right font-normal">
+                  <Link
+                    to="forgot-password"
+                    className="text-[#079273] text-right font-normal"
+                  >
                     Forgot password?
                   </Link>
 
