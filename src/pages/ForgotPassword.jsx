@@ -70,7 +70,7 @@ const ForgotPassword = () => {
               </p>
             )}
           </div>
-          <ButtonSubmit title="Reset Password" />
+          <ButtonSubmit type="submit" title="Reset Password" />
         </form>
         <HaveAccount />
       </div>
