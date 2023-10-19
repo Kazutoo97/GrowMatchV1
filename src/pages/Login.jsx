@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginService } from "../redux/service/AuthService";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { axiosInstance } from "../libs/axios";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -40,14 +41,11 @@ const Login = () => {
     const tokenData = JSON.parse(localStorage.getItem("user"));
     const token = tokenData?.data;
     try {
-      const response = await axios.get(
-        "https://alert-lime-underwear.cyclic.app/api/v1/auth/profile",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axiosInstance.get("/api/v1/auth/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       dispatch({ type: "PROFILE_FULFILLED", payload: response.data.data });
       console.log(response.data.data);
     } catch (error) {

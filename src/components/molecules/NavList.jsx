@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Image from "../../assets";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { axiosInstance } from "../../libs/axios";
 
 const NavList = () => {
   const dispatch = useDispatch();
@@ -14,9 +14,7 @@ const NavList = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.delete(
-        "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/logout"
-      );
+      const response = await axiosInstance.delete("api/v1/auth/logout");
       localStorage.removeItem("user");
       dispatch({ type: "LOGOUT_FULFILLED" });
       dispatch({ type: "PROFILE_LOGOUT" });

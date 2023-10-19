@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import InputPassword from "../components/atoms/InputPassword";
 import LabelForm from "../components/atoms/LabelForm";
 import ButtonSubmit from "../components/atoms/ButtonSubmit";
 import ButtonLink from "../components/atoms/ButtonLink";
 import toast from "react-hot-toast";
+import { axiosInstance } from "../libs/axios";
 
 const ResetPassword = () => {
   let { token } = useParams();
@@ -44,10 +44,10 @@ const ResetPassword = () => {
     try {
       const { password } = data;
 
-      const response = await axios.put(
-        "https://alert-lime-underwear.cyclic.app/api/v1/reset-password",
-        { token, password }
-      );
+      const response = await axiosInstance.put("/api/v1/reset-password", {
+        token,
+        password,
+      });
 
       console.log(response.data.message);
       toast.success(response.data.message);

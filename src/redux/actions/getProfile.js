@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosInstance } from "../../libs/axios";
 
 export const getProfile = () => async (dispatch) => {
   dispatch({ type: "GET_PENDING" });
@@ -8,14 +8,11 @@ export const getProfile = () => async (dispatch) => {
     return;
   }
   try {
-    const response = await axios.get(
-      "https://alert-lime-underwear.cyclic.app/api/v1/auth/profile",
-      {
-        headers: {
-          Authorization: `Bearer ${tokenData.data}`,
-        },
-      }
-    );
+    const response = await axiosInstance.get("/api/v1/auth/profile", {
+      headers: {
+        Authorization: `Bearer ${tokenData.data}`,
+      },
+    });
     dispatch({ type: "GET_FULFILLED", payload: response.data.data });
   } catch (error) {
     dispatch({ type: "GET_REJECTED", payload: error.message });

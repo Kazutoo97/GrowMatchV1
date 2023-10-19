@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosInstance } from "../../libs/axios";
 
 export const loginService = async (userName, password) => {
   const userData = {
@@ -6,10 +6,7 @@ export const loginService = async (userName, password) => {
     password,
   };
 
-  const response = await axios.post(
-    "https://alert-lime-underwear.cyclic.app/api/v1/auth/login",
-    userData
-  );
+  const response = await axiosInstance.post("/api/v1/auth/login", userData);
 
   return response.data;
 };
@@ -33,10 +30,7 @@ export const registerService = async (
     interest,
   };
 
-  const response = await axios.post(
-    "https://giddy-lime-goshawk.cyclic.cloud/api/v1/auth/register",
-    userData
-  );
+  const response = await axiosInstance.post("/api/v1/auth/register", userData);
 
   return response.data;
 };
