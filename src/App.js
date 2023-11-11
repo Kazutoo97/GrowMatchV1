@@ -5,10 +5,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useSelector } from "react-redux";
 import Growmatch from "./pages/Growmatch";
-import UserProfile from "./pages/UserProfile";
 import { Toaster } from "react-hot-toast";
 import ResetPassword from "./pages/ResetPassword";
 import ForgotPassword from "./pages/ForgotPassword";
+import Profile from "./pages/Profile";
 
 function App() {
   const { user } = useSelector((state) => state.Auth);
@@ -27,10 +27,7 @@ function App() {
           path="/register"
           element={user ? <Navigate to="/" /> : <Register />}
         />
-        <Route
-          path="/profile"
-          element={user ? <UserProfile /> : <Navigate to="/" />}
-        />
+        <Route path="/*" element={<Profile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>

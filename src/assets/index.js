@@ -20,7 +20,7 @@ import Avatar4 from "./Avatar/avatar-4.png";
 import Avatar5 from "./Avatar/avatar-5.png";
 import BigArticle from "./Person/Articlejpg.jpg";
 
-const Image = {
+const Images = {
   Avatar1,
   Avatar2,
   Avatar3,
@@ -44,4 +44,4 @@ const Image = {
   BigArticle,
 };
 
-export default Image;
+export default Images;

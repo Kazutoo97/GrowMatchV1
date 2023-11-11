@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import MainLogo from "./molecules/MainLogo";
+import ButtonHamburger from "./atoms/ButtonHamburger";
 import NavList from "./molecules/NavList";
-import NavMobile from "./molecules/NavMobile";
+import NavLogo from "./atoms/NavLogo";
 
 const Header = () => {
-  const [menu, setMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <section className="px-4 xl:max-w-6xl lg:max-w-4xl lg:px-0 max-w-sm mx-auto">
-      <nav className="py-5">
-        <div className="flex justify-between items-center relative">
-          <MainLogo menu={menu} setMenu={setMenu} />
-          <NavList menu={menu} />
-          <NavMobile menu={menu} />
+    <header className="h-[76px] fixed top-0 left-0 w-full bg-white z-[9999] shadow-md">
+      <div className="container mx-auto max-w-7xl px-[10%] md:px-[5%] 2xl:px-0 relative">
+        <div className="flex items-center justify-between relative py-3 ">
+          <NavLogo />
+          <div className="flex items-center">
+            <ButtonHamburger
+              menuOpen={menuOpen}
+              onClick={() => setMenuOpen(!menuOpen)}
+            />
+            <NavList menuOpen={menuOpen} />
+          </div>
         </div>
-      </nav>
-    </section>
+      </div>
+    </header>
   );
 };
 

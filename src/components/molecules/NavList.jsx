@@ -1,83 +1,124 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Image from "../../assets";
+import NavLi from "../atoms/NavLi";
 import { useDispatch, useSelector } from "react-redux";
+import Images from "../../assets";
 import { axiosInstance } from "../../libs/axios";
 
-const NavList = () => {
+const NavList = ({ menuOpen }) => {
   const dispatch = useDispatch();
+  const [dropdownUser, setDropdownUser] = useState(false);
   const { user } = useSelector((state) => state.Auth);
   const { dataProfile } = useSelector((state) => state.Profile);
-  const [dropdown, setDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const onCLick = async (e) => {
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
+      ) {
+        setDropdownUser(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const onClick = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.delete("api/v1/auth/logout");
+      await axiosInstance.delete("api/v1/auth/logout");
+      setDropdownUser(false);
       localStorage.removeItem("user");
-      dispatch({ type: "LOGOUT_FULFILLED" });
-      dispatch({ type: "PROFILE_LOGOUT" });
-      console.log(response);
+      dispatch({ type: "LOGOUT_SUCCESS" });
+      dispatch({ type: "REGISTER_RESET" });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
   return (
-    <div className="md:w-7/12">
-      <ul className="hidden md:flex items-center justify-end text-base font-medium space-x-4 text-[#5EDFA9]">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link>About Us</Link>
-        </li>
-        {!user ? (
-          <li>
-            <Link
-              to="/login"
-              type="button"
-              className="px-8 py-2 font-base text-white bg-[#079273] rounded-tl-[42px] rounded-tr-[42px] rounded-br-[42px]"
-            >
-              Login
-            </Link>
-          </li>
+    <nav className="flex justify-between items-center space-x-6 ">
+      <div className="md:flex hidden">
+        <ul className="block text-primaryFive font-medium md:flex md:space-x-6 items-center justify-center py-2 md:py-0">
+          <NavLi to="/" title="Home" />
+          <NavLi to="/about" title="About Us" />
+        </ul>
+      </div>
+
+      <div className="sidebar relative">
+        {user ? (
+          <button
+            ref={buttonRef}
+            type="button"
+            className="inline-flex justify-center items-center h-10 px-3 min-w-[2.5rem] w-auto rounded-md active:bg-gray-700/30
+            focus:shadow-[rgba(0,0,0,0.15)_0px_0px_0px_3px] "
+            onClick={() => setDropdownUser(!dropdownUser)}
+          >
+            <span className="flex items-center justify-center">
+              <span className="inline-flex justify-center items-center w-6 h-6">
+                <img
+                  src={Images.Avatar1}
+                  alt="Avatar"
+                  className="max-w-full w-full h-full object-cover rounded-full"
+                />
+              </span>
+            </span>
+          </button>
         ) : (
-          <li>
-            <button
-              onClick={() => setDropdown(!dropdown)}
-              type="button"
-              className="relative flex items-center space-x-3 py-1 px-2 rounded-md bg-teal-800"
-            >
-              <img
-                src={Image.PersonOne}
-                alt=""
-                className="rounded-full h-6 w-6 object-cover"
-              />
-              <p className="text-white">
-                {dataProfile && dataProfile?.firstName}
-              </p>
-            </button>
-            {dropdown && (
-              <div className="absolute right-0 top-[68px] bg-red-500 h-[150px] w-[150px] z-[9999]">
-                <div className="py-3 flex flex-col justify-start">
-                  <Link to="/profile" className="hover:bg-gray-200">
-                    <button className="py-2 px-3">Profile</button>
-                  </Link>
-                  <button
-                    className="hover:bg-gray-200 py-2 px-3"
-                    onClick={onCLick}
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            )}
-          </li>
+          <Link
+            to="/login"
+            className="flex justify-center items-center h-10 w-24 text-white text-base font-semibold bg-primaryFive rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] hover:bg-primarySeven transition duration-300"
+          >
+            Login
+          </Link>
         )}
-      </ul>
-    </div>
+
+        {dropdownUser && (
+          <div
+            ref={dropdownRef}
+            className="absolute max-w-fit top-12 right-0 shadow-lg z-99 transition-all duration-700 "
+          >
+            <div className="py-2 min-w-[14rem] rounded-md border bg-white ">
+              <div className="flex items-center px-3 py-2">
+                <span className="inline-flex justify-center items-center w-8 h-8 rounded-full">
+                  <img
+                    src={Images.Avatar1}
+                    alt="Avatar"
+                    className="max-w-full h-full w-full rounded-full object-cover"
+                  />
+                </span>
+                <p className="ml-3 text-sm text-gray-600 text-start font-medium w-[calc(100%-3rem)]">
+                  {/* {dataProfile?.firstName + dataProfile?.lastName} */}
+                  {dataProfile?.firstName}
+                </p>
+              </div>
+              <hr className="border-[rgba(0,0,0,0.09)] rounded-e-md my-2" />
+
+              <Link to="/profile" className="">
+                <p className="flex w-full leading-none text-start px-4 py-2 text-base text-gray-600 font-medium hover:bg-gray-400/25">
+                  Profile
+                </p>
+              </Link>
+              <button
+                type="button"
+                className="inline-flex w-full leading-none text-start px-4 py-2 text-base text-primaryFive font-medium hover:bg-gray-400/25"
+                onClick={onClick}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

@@ -3,7 +3,6 @@ const initialState = {
   isLoading: false,
   isError: false,
   isSuccess: false,
-  message: "",
 };
 
 const RegisterReducer = (state = initialState, action) => {
@@ -13,13 +12,12 @@ const RegisterReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case "REGISTER_FULFILLED":
+    case "REGISTER_SUCCESS":
       return {
         ...state,
         registerUserName: action.payload,
         isLoading: false,
         isSuccess: true,
-        message: action.payload.message,
       };
     case "REGISTER_REJECTED":
       return {
@@ -27,7 +25,6 @@ const RegisterReducer = (state = initialState, action) => {
         isLoading: false,
         isError: true,
         isSuccess: false,
-        message: action.payload,
       };
 
     case "REGISTER_RESET":
@@ -37,7 +34,6 @@ const RegisterReducer = (state = initialState, action) => {
         isLoading: false,
         isError: false,
         isSuccess: false,
-        message: "",
       };
 
     default:

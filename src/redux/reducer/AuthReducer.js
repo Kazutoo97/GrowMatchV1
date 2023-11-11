@@ -4,7 +4,6 @@ const initialState = {
   isLoading: false,
   isError: false,
   isSuccess: false,
-  message: "",
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -14,7 +13,7 @@ const AuthReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-    case "LOGIN_FULFILLED":
+    case "LOGIN_SUCCESS":
       return {
         ...state,
         user: action.payload,
@@ -28,24 +27,21 @@ const AuthReducer = (state = initialState, action) => {
         isLoading: false,
         isError: true,
         isSuccess: false,
-        message: action.payload,
       };
-    case "LOGOUT_FULFILLED":
+    case "LOGOUT_SUCCESS":
       return {
         ...state,
         user: null,
         isLoading: false,
         isError: false,
         isSuccess: false,
-        message: "",
       };
-    case "RESET":
+    case "LOGIN_RESET":
       return {
         ...state,
         isLoading: false,
         isError: false,
         isSuccess: false,
-        message: "",
       };
 
     default:
