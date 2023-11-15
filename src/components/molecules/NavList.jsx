@@ -102,7 +102,7 @@ const NavList = ({ menuOpen }) => {
               </div>
               <hr className="border-[rgba(0,0,0,0.09)] rounded-e-md my-2" />
 
-              <Link to="/profile" className="">
+              <Link to="/profile/ubah-profile" className="">
                 <p className="flex w-full leading-none text-start px-4 py-2 text-base text-gray-600 font-medium hover:bg-gray-400/25">
                   Profile
                 </p>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Images from "../assets";
+
 import Footer from "../components/Footer";
 import UbahProfile from "../components/UbahProfile";
 import ResetPassword from "../components/ResetPassword";
