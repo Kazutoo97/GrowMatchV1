@@ -24,13 +24,13 @@ const Growmatch = () => {
               <div className="flex justify-center items-center gap-6">
                 <button
                   type="button"
-                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold hover:bg-primaryFive/40"
+                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold hover:bg-primaryFive/40 transition-all duration-300"
                 >
                   Frontend Developer
                 </button>
                 <button
                   type="button"
-                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40"
+                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40 transition-all duration-300"
                 >
                   Quality Assurance
                 </button>
@@ -38,19 +38,19 @@ const Growmatch = () => {
               <div className="flex justify-center items-center gap-6">
                 <button
                   type="button"
-                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40"
+                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40 transition-all duration-300"
                 >
                   Data Science
                 </button>
                 <button
                   type="button"
-                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40"
+                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40 transition-all duration-300"
                 >
                   Frontend Developer
                 </button>
                 <button
                   type="button"
-                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40"
+                  className="bg-primaryThree px-4 py-2 rounded-md text-gray-950 font-semibold shadow-md hover:bg-primaryFive/40 transition-all duration-300"
                 >
                   Quality Assurance
                 </button>
